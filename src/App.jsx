@@ -38,7 +38,8 @@ const BRAND = {
   accent: "#B79BDD",
   accentDeep: "#6F4E97",
   ink: "#322A45",
-  coords: [41.3289, 19.8170]
+  coords: [41.3177258, 19.8103425],
+  mapsUrl: "https://maps.app.goo.gl/LdRta3HhRVABq7Xc7"
 };
 
 // Graceful fallback when a remote (Unsplash) image fails to load, so cards never
@@ -482,10 +483,7 @@ export default function App() {
 
   // Open native maps navigation to the store (Apple Maps on Apple devices, Google Maps elsewhere)
   const openDirections = () => {
-    const [lat, lng] = BRAND.coords;
-    const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-    const url = isApple ? `https://maps.apple.com/?daddr=${lat},${lng}` : `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-    window.open(url, '_blank', 'noopener');
+    window.open(BRAND.mapsUrl, '_blank', 'noopener');
   };
   const CATEGORIES = ["all", "bouquets", "roses", "arrangements", "weddings"];
   const NAV_CATEGORIES = ["bouquets", "roses", "arrangements", "weddings"];
@@ -1323,8 +1321,8 @@ export default function App() {
                 <div>
                   <h4 className="text-xs font-display font-semibold uppercase tracking-widest text-brand-deep">{t.visit.addressLabel}</h4>
                   <p className="text-base text-brand-dark mt-2.5 font-serif font-light leading-relaxed">
-                    Rruga e Durrësit, Pallati 5<br />
-                    Tirana 1001, Albania
+                    Sheshi Floran Kondi<br />
+                    Njësia Nr. 5, Tiranë 1060
                   </p>
                   <p className="text-sm text-brand-dark/50 mt-1 font-sans font-light">{t.visit.addressNote}</p>
                 </div>
@@ -1427,7 +1425,7 @@ export default function App() {
                 </a>
                 <span className="flex items-center gap-3 text-base text-gray-300 font-light font-sans">
                   <span className="flex items-center justify-center w-10 h-10 border border-white/15 shrink-0"><MapPin className="w-4 h-4 text-brand-gold" /></span>
-                  Rruga e Durrësit, Tirana
+                  Sheshi Floran Kondi, Tiranë
                 </span>
               </div>
             </div>
